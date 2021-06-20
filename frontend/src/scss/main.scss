@@ -1,0 +1,12 @@
+@import url("https://fonts.googleapis.com/css2?family=Inter&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Amatic+SC:wght@700&family=Rock+Salt&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Itim&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Gloria+Hallelujah&family=Itim&display=swap");
+$font-family-sans-serif: "Inter", sans-serif;
+
+$primary: #2a9d8f;
+$dark: #264653;
+$secondary: #e76f51;
+$warning: #e9c46a;
+
+@import "../../node_modules/bootstrap/scss/bootstrap";

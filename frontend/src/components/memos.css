@@ -1,0 +1,17 @@
+.card-buttons button {
+  width: 87px;
+}
+
+.memo {
+  background-color: lightgoldenrodyellow;
+}
+
+.memo-inner > p:first-of-type {
+  line-height: 1.6em;
+  height: 4.8em;
+}
+
+.memo-inner > p,
+.memo-inner > h4 {
+  font-family: "Gloria Hallelujah", cursive;
+}

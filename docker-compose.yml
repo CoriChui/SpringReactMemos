@@ -1,0 +1,42 @@
+version: "3"
+services:
+  db:
+    image: "postgres"
+    container_name: "postgres"
+    environment:
+      - POSTGRES_USER=postgres
+      - POSTGRES_PASSWORD=postgres
+      - POSTGRES_DB=memos
+    ports:
+      - "5432:5432"
+    volumes:
+      - ./db-data:/var/lib/postgresql/data
+
+  backend:
+    build: ./backend/
+    container_name: "backend"
+    ports:
+      - "8080:8080"
+    environment:
+      - SPRING_MAIL_USERNAME=admin
+      - SPRING_MAIL_PASSWORD=admin
+      - SPRING_MAIL_HOST=maildev
+      - SPRING_MAIL_PORT=25
+      - SPRING_MAIL_PROPERTIES_MAIL_SMPT_AUTH=false
+      - SPRING_JPA_HIBERNATE_DDL-AUTO=create-drop
+    depends_on:
+      - db
+
+  frontend:
+    build: ./frontend/
+    container_name: "frontend"
+    ports:
+      - "3000:3000"
+    depends_on:
+      - backend
+
+  maildev:
+    image: djfarrelly/maildev 
+    container_name: "maildev"
+    ports:
+      - "1080:80"
